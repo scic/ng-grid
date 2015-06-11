@@ -153,7 +153,7 @@
               if ((scrollEvent.y && scrollEvent.y.percentage !== 0 && scrollEvent.y.percentage !== 1) ||
                  (scrollEvent.x && scrollEvent.x.percentage !== 0 && scrollEvent.x.percentage !== 1)) {
 
-                  event.preventDefault();
+//                   event.preventDefault();
                   scrollEvent.fireThrottledScrollingEvent();
               }
             });
