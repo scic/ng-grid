@@ -388,21 +388,21 @@ module.exports = function(grunt) {
     },
 
     'gh-pages': {
-      'ui-grid-site': {
-        options: {
-          base: '<%= dist %>',
-          tag: (currentTag) ? 'v' + currentTag : null,
-          repo: 'https://github.com/angular-ui/ui-grid.info.git',
-          message: 'gh-pages v<%= version %>',
-          add: true
-        },
-        src: ['**/*']
-      },
+//       'ui-grid-site': {
+//         options: {
+//           base: '<%= dist %>',
+//           tag: (currentTag) ? 'v' + currentTag : null,
+//           repo: 'https://github.com/angular-ui/ui-grid.info.git',
+//           message: 'gh-pages v<%= version %>',
+//           add: true
+//         },
+//         src: ['**/*']
+//       },
       'bower': {
         options: {
           base: '<%= dist %>/release/' + currentTag,
           tag: (currentTag) ? 'v' + currentTag : null,
-          repo: 'https://github.com/angular-ui/bower-ui-grid.git',
+          repo: 'git@github.com:scic/bower-ui-grid.git',
           message: 'v' + currentTag,
           branch: 'master',
           add: true
@@ -516,7 +516,7 @@ module.exports = function(grunt) {
     changelog: {
       options: {
         dest: 'CHANGELOG.md',
-        github: 'angular-ui/ng-grid'
+        github: 'scic/ng-grid'
       }
     },
 
@@ -650,7 +650,7 @@ module.exports = function(grunt) {
   });
   
   grunt.registerTask('release', 'Release a new version out info the world', function () {
-    grunt.task.run(['clean', 'ngtemplates', 'build', 'cut-release', 'gh-pages:ui-grid-site']);
+    grunt.task.run(['clean', 'ngtemplates', 'build', 'cut-release']);
 
     // If there's a tag on this commit, release a new version to bower
     if (currentTag) {
